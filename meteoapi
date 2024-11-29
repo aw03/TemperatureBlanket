@@ -70,3 +70,6 @@ counts = daily_dataframe["day_color"].value_counts()
 weighted_counts = daily_dataframe["weighted_day_color"].value_counts()
 print(counts)
 print(weighted_counts)
+
+daily_dataframe['date'] = daily_dataframe['date'].dt.tz_localize(None)
+daily_dataframe.to_excel("weather_data.xlsx", index=False)  # Save without row indices
